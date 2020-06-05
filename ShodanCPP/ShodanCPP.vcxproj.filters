@@ -32,6 +32,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="README.md" />
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

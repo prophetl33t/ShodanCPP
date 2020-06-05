@@ -1,4 +1,4 @@
-ShodanCPP is a library for accessing the Shodan API.
+ShodanCPP is a Ñ++ library for accessing the Shodan API.
 
 Usage example:
 
