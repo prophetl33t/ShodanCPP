@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- general -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- static libraries -->
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'Win32' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013')">
+    <Link>
+      <AdditionalDependencies>libssl-vc142-x86-1_1_0.lib;libcrypto-vc142-x86-1_1_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'x64' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013')">
+    <Link>
+      <AdditionalDependencies>libssl-vc142-x64-1_1_0.lib;libcrypto-vc142-x64-1_1_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- dynamic libraries -->
+  <Target Name="openssl_AfterBuild_x86_vc142"
+          Condition="'$(Platform)' == 'Win32' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013')"
+          AfterTargets="AfterBuild">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)\bin\libssl-vc142-x86-1_1_0.dll"    DestinationFiles="$(TargetDir)libssl-1_1.dll"        SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)\bin\libcrypto-vc142-x86-1_1_0.dll" DestinationFiles="$(TargetDir)libcrypto-1_1.dll"     SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="openssl_AfterBuild_x64_vc142"
+          Condition="'$(Platform)' == 'x64' And ('$(PlatformToolset)' == 'v142' Or '$(PlatformToolset)' == 'CTP_Nov2013')"
+          AfterTargets="AfterBuild">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)\bin\libssl-vc142-x64-1_1_0.dll"    DestinationFiles="$(TargetDir)libssl-1_1-x64.dll"    SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)\bin\libcrypto-vc142-x64-1_1_0.dll" DestinationFiles="$(TargetDir)libcrypto-1_1-x64.dll" SkipUnchangedFiles="true" />
+  </Target>
+</Project>
