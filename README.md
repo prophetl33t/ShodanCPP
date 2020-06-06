@@ -1,4 +1,4 @@
-ShodanCPP is a Ñ++ library for accessing the Shodan API.
+ShodanCPP is a C++ library for accessing the Shodan API.
 
 Usage example:
 
@@ -13,6 +13,11 @@ Usage example:
     std::cout << doc["total"].GetInt() << "\n";
 
 Libraries used:
-rapidjson (https://github.com/Tencent/rapidjson)
-string_view_lite (https://github.com/martinmoene/string-view-lite)
+
 curl (https://curl.haxx.se)
+
+rapidjson (https://github.com/Tencent/rapidjson)
+
+string_view_lite (https://github.com/martinmoene/string-view-lite)
+
+
