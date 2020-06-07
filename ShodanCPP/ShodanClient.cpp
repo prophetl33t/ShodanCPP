@@ -57,7 +57,7 @@ std::string ShodanClient::GetFilters()
 
 std::string ShodanClient::GetTokens(nonstd::string_view query)
 {
-	curl_easy_setopt(curl, CURLOPT_URL, string_format("%s/shodan/host/search/tokens?%s&query=%s", api_url, api_key, query.data()).c_str());
+	curl_easy_setopt(curl, CURLOPT_URL, string_format("%s/shodan/host/search/tokens?key=%s&query=%s", api_url, api_key, query.data()).c_str());
 	return GetData();
 }
 
@@ -184,7 +184,7 @@ std::string ShodanClient::StopIgnoreAlertTrigger(nonstd::string_view alert_id, n
 
 std::string ShodanClient::GetSavedQueries(int page, nonstd::string_view sort, nonstd::string_view order)
 {
-	std::string tmp = "%s/shodan/query?key=%";
+	std::string tmp = "%s/shodan/query?key=%s";
 	if (page != 0)
 		tmp.append("&page=%i");
 	if (sort.size() != 0)
