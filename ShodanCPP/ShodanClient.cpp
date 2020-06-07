@@ -16,7 +16,7 @@ std::string string_format(const std::string fmt_str, ...) {
 		else
 			break;
 	}
-	//std::cout << "Request to api: " << std::string(formatted.get()) << "\n";
+	std::cout << "Request to api: " << std::string(formatted.get()) << "\n";
 	return std::string(formatted.get());
 }
 
@@ -27,7 +27,7 @@ void ShodanClient::SetAPIKey(nonstd::string_view key)
 
 std::string ShodanClient::GetHostInfo(nonstd::string_view ip, bool history , bool minify )
 {
-	curl_easy_setopt(curl, CURLOPT_URL, string_format("%s/shodan/host/%s?key=%s", api_url, ip.data(), api_key).c_str());
+	curl_easy_setopt(curl, CURLOPT_URL, string_format("%s/shodan/host/%s?key=%s&history=%i&minify=%i", api_url, ip.data(), api_key,history,minify).c_str());
 	return GetData();
 }
 
@@ -39,7 +39,12 @@ std::string ShodanClient::GetHostCount(nonstd::string_view query, nonstd::string
 
 std::string ShodanClient::SearchHost(nonstd::string_view query, nonstd::string_view facets, int page, bool minify)
 {
-	curl_easy_setopt(curl, CURLOPT_URL, string_format("%s/shodan/host/search?key=%s&query=%s&facets=%s&%page=%i&minify=%i", api_url, api_key, query.data(), facets.data(),page,minify).c_str());
+	std::string tmp = "%s/shodan/host/search?key=%s&query=%s&page=%i&minify=%i";
+
+	if (facets.size() != 0)
+	tmp.append("&facets=%s");
+
+	curl_easy_setopt(curl, CURLOPT_URL, string_format(std::move(tmp), api_url, api_key, query.data(),page,minify, facets.data()).c_str());
 	return GetData();
 }
 
