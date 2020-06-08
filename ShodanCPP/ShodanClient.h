@@ -1,12 +1,13 @@
 #ifndef H_SHODANCLIENT
 #define H_SHODANCLIENT
 
+#include <iostream>
+#include <stdarg.h>
+#include <memory>
+#include <fstream>
 #include "curl/curl.h"
 #include "document.h"
 #include "allocators.h"
-#include <iostream>
-#include <stdarg.h>
-#include <memory> 
 #include "string_view_lite.hpp"
 
 static bool CurlWasInitialized = false;
@@ -55,6 +56,12 @@ private:
 			return NULL_STRING;
 		}	
 	}
+
+	bool FileExists(const char* fname)
+	{
+		std::ifstream file(fname);
+		return file.good();
+	}
 	// Shorthand for method without parameters (or with params only in CURLOPT_POSTFIELDS)
 	inline void NoGETParamsMethod(const char* method)
 	{
@@ -74,6 +81,10 @@ public:
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writer);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
 		curl_easy_setopt(curl, CURLOPT_CAINFO, "curl-ca-bundle.crt");
+		if (!FileExists("curl-ca-bundle.crt"))
+		{
+			std::cout << "Warning! Cannot access ca bundle! Make sure that curl-ca-bundle.crt is in the current working directory!\n";
+		}
 		curl_easy_setopt(curl, CURLOPT_USERAGENT, "ShodanCPP");
 		curl_easy_setopt(curl, CURLOPT_URL, api_url);
 		if (curl)
