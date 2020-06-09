@@ -10,7 +10,6 @@
 #include "allocators.h"
 #include "string_view_lite.hpp"
 
-static bool CurlWasInitialized = false;
 static char errorBuffer[CURL_ERROR_SIZE];
 static std::string NULL_STRING = "";
 
@@ -73,10 +72,9 @@ public:
 	ShodanClient() : api_url("https://api.shodan.io"), stream_api_url("https://stream.shodan.io"), exploits_api_url("https://exploits.shodan.io")
 	{
 		buffer.reserve(100);
-		if (!CurlWasInitialized)
-		{
-			curl = curl_easy_init();
-		}
+
+		curl = curl_easy_init();
+		
 		curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, errorBuffer);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writer);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
