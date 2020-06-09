@@ -101,7 +101,8 @@
       <AdditionalDependencies>Ws2_32.lib;Wldap32.lib;Crypt32.lib;Normaliz.lib;libcrypto-vc142-x64-1_1_0.lib;libcurl.lib;libssl-vc142-x64-1_1_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>&lt;разные параметры&gt;
+      <Command>xcopy "$(SolutionDir)openssl\bin\libcrypto-1_1-x64.dll" "$(SolutionDir)x64\Debug\" /q /y
+xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Debug\" /q /y
 xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Debug\" /q /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -124,7 +125,8 @@ xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Debug\" /q /y</Comma
       <AdditionalDependencies>Ws2_32.lib;Wldap32.lib;Crypt32.lib;Normaliz.lib;libcrypto-vc142-x64-1_1_0.lib;libcurl.lib;libssl-vc142-x64-1_1_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>&lt;разные параметры&gt;
+      <Command>xcopy "$(SolutionDir)openssl\bin\libcrypto-1_1-x64.dll" "$(SolutionDir)x64\Release\" /q /y
+xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Release\" /q /y
 xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Release\" /q /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -143,7 +145,8 @@ xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Release\" /q /y</Com
       <AdditionalDependencies>Ws2_32.lib;Wldap32.lib;Crypt32.lib;Normaliz.lib;libcrypto-vc142-x64-1_1_0.lib;libcurl.lib;libssl-vc142-x64-1_1_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>&lt;разные параметры&gt;
+      <Command>xcopy "$(SolutionDir)openssl\bin\libcrypto-1_1-x64.dll" "$(SolutionDir)x64\Debug\" /q /y
+xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Debug\" /q /y
 xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Debug\" /q /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -166,7 +169,8 @@ xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Debug\" /q /y</Comma
       <AdditionalDependencies>Ws2_32.lib;Wldap32.lib;Crypt32.lib;Normaliz.lib;libcrypto-vc142-x64-1_1_0.lib;libcurl.lib;libssl-vc142-x64-1_1_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>&lt;разные параметры&gt;
+      <Command>xcopy "$(SolutionDir)openssl\bin\libcrypto-1_1-x64.dll" "$(SolutionDir)x64\Release\" /q /y
+xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Release\" /q /y
 xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Release\" /q /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
