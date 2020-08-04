@@ -89,7 +89,7 @@ std::string ShodanClient::Scan(nonstd::string_view ips)
 std::string ShodanClient::ScanInternet(int port, nonstd::string_view ips)
 {
 	NoGETParamsMethod("/shodan/scan/internet");
-	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, string_format("port=%i&ips=%s"),port,ips.data());
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, string_format("port=%i&ips=%s",port,ips.data()));
 	curl_easy_setopt(curl, CURLOPT_POST, 1);
 	return GetData();
 }
