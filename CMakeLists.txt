@@ -11,7 +11,7 @@ set(LIB_CURL_R_PATH "curl/bin/x64/Crelease/libcurl.lib")
 set(LIB_LIBSSL_PATH "openssl/bin/libssl-vc142-x64-1_1_0.lib")
 set(LIB_LIBCRYPTO_PATH "openssl/bin/libcrypto-vc142-x64-1_1_0.lib")
 
-add_library(ShodanCPP shodanCPP/ShodanClient.h shodanCPP/ShodanClient.cpp)
+add_library(ShodanCPP ShodanCPP/ShodanClient.h ShodanCPP/ShodanClient.cpp)
 target_link_libraries(ShodanCPP debug ${LIB_CURL_D_PATH})
 target_link_libraries(ShodanCPP release ${LIB_CURL_R_PATH})
 target_link_libraries(ShodanCPP ${LIB_LIBSSL_PATH})
