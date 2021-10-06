@@ -1,5 +1,7 @@
 #include "ShodanClient.h"
-#include <prettywriter.h>
+#include "include/rapidjson/document.h"
+#include "include/rapidjson/allocators.h"
+#include "include/rapidjson/prettywriter.h"
 
 std::string string_format(const std::string fmt_str, ...) {
 	int final_n, n = ((int)fmt_str.size()) * 2;

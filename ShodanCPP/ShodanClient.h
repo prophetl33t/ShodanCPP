@@ -6,8 +6,6 @@
 #include <memory>
 #include <fstream>
 #include "curl/curl.h"
-#include "document.h"
-#include "allocators.h"
 #include "string_view_lite.hpp"
 
 static char errorBuffer[CURL_ERROR_SIZE];
