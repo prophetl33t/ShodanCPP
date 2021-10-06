@@ -7,6 +7,9 @@
 #include <fstream>
 #include "curl/curl.h"
 #include "string_view_lite.hpp"
+#include "include/rapidjson/document.h"
+#include "include/rapidjson/allocators.h"
+#include "include/rapidjson/prettywriter.h"
 
 static char errorBuffer[CURL_ERROR_SIZE];
 static std::string NULL_STRING = "";
