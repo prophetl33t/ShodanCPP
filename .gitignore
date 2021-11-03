@@ -336,6 +336,3 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-
-# Prevent commiting cloned submodule
-rapidjson
