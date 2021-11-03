@@ -2,6 +2,12 @@
 
 ShodanCPP is a C++ library for accessing the Shodan API.
 
+Cloning a repository with submodules:
+```shell
+git clone --recursive https://github.com/prophetl33t/ShodanCPP.git
+git submodule update --init --recursive
+```
+
 Usage example:
 
    	//Print information about the API plan.
@@ -22,4 +28,4 @@ rapidjson (https://github.com/Tencent/rapidjson)
 
 string_view_lite (https://github.com/martinmoene/string-view-lite)
 
-Repo includes solution for MSVS 2019 and CMakeLists.txt if you want to use different IDE.
+The repository contains a solution for Visual Studio 2019 and CMakeLists.txt, in case you want to use a different IDE. The library was tested only on Windows, but apparently it works on linux too (if you find the curl library yourself).
