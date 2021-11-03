@@ -146,8 +146,7 @@ xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Release\" /q /y</Com
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)openssl\bin\libcrypto-1_1-x64.dll" "$(SolutionDir)x64\Debug\" /q /y
-xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Debug\" /q /y
-xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Debug\" /q /y</Command>
+xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Debug\" /q /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -170,8 +169,7 @@ xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Debug\" /q /y</Comma
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)openssl\bin\libcrypto-1_1-x64.dll" "$(SolutionDir)x64\Release\" /q /y
-xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Release\" /q /y
-xcopy "$(SolutionDir)curl-ca-bundle.crt" "$(SolutionDir)x64\Release\" /q /y</Command>
+xcopy "$(SolutionDir)openssl\bin\libssl-1_1-x64.dll" "$(SolutionDir)x64\Release\" /q /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
