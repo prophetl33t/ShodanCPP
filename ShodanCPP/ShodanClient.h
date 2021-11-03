@@ -118,11 +118,11 @@ public:
 	std::string GetFilters();
 	//Returns which filters are being used by the query string and what parameters were provided to the filters.
 	std::string GetTokens(nonstd::string_view query);
-	//Returns a list of port numbers that the crawlers are looking for.
-	std::string GetPorts();
 
 	//Shodan On-Demand Scanning
 
+	//Returns a list of port numbers that the crawlers are looking for.
+	std::string GetPorts();
 	//Returns an object containing all the protocols that can be used when launching an Internet scan.
 	std::string GetProtocols();
 	//Use this method to request Shodan to crawl a network.
@@ -130,6 +130,8 @@ public:
 	//Use this method to request Shodan to crawl the Internet for a specific port.
 	//Restricted to security researchers and companies with a Shodan Enterprise Data license.
 	std::string ScanInternet(int port, nonstd::string_view ips);
+	//Returns a listing of all the on-demand scans that are currently active on the account.
+	std::string GetAllScans();
 	//Check the progress of a previously submitted scan request.
 	std::string GetScanStatus(nonstd::string_view id);
 
